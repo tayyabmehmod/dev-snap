@@ -1,0 +1,263 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #09090B;
+    color: #fff;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #09090B;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #3B82F6;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #8B5CF6;
+  }
+}
+
+@layer components {
+  /* Glass Card */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+  }
+
+  .glass-card-strong {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    background: linear-gradient(135deg, #3B82F6, #8B5CF6, #22D3EE);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 200%;
+    animation: gradient 6s ease infinite;
+  }
+
+  /* Primary Button */
+  .btn-primary {
+    @apply relative inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white
+           transition-all duration-300 overflow-hidden;
+    background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.5), 0 0 60px rgba(139, 92, 246, 0.3);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  /* Secondary Button */
+  .btn-secondary {
+    @apply relative inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold
+           border transition-all duration-300;
+    border-color: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .btn-secondary:hover {
+    border-color: rgba(59, 130, 246, 0.5);
+    background: rgba(59, 130, 246, 0.08);
+    transform: translateY(-2px);
+  }
+
+  /* Input Field */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl text-white placeholder-white/30 outline-none
+           transition-all duration-300 text-sm;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .input-field:focus {
+    border-color: rgba(59, 130, 246, 0.6);
+    background: rgba(59, 130, 246, 0.05);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+
+  /* Section Title */
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-4;
+  }
+
+  /* Skill Badge */
+  .skill-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium
+           transition-all duration-200;
+    background: rgba(59, 130, 246, 0.15);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    color: #93C5FD;
+  }
+
+  .skill-badge:hover {
+    background: rgba(59, 130, 246, 0.25);
+    transform: translateY(-1px);
+  }
+
+  /* Navbar Glass */
+  .navbar-glass {
+    background: rgba(9, 9, 11, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  /* Glow Effect */
+  .glow-blue {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+  }
+
+  /* Feature Card */
+  .feature-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+  }
+
+  .feature-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(59, 130, 246, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Template: Minimal */
+  .template-minimal {
+    background: #fff;
+    color: #111;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Template: Glass */
+  .template-glass {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: #fff;
+  }
+
+  /* Template: Cyber */
+  .template-cyber {
+    background: #0a0a0a;
+    color: #00ff41;
+    font-family: 'Courier New', monospace;
+    border: 1px solid #00ff41;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float 6s ease-in-out infinite 2s;
+  }
+
+  .animate-float-slow {
+    animation: float 8s ease-in-out infinite 1s;
+  }
+}
+
+/* Animated gradient background for hero */
+.hero-gradient {
+  background: linear-gradient(-45deg, #09090B, #1a0a2e, #0f1a3e, #0a1a2e);
+  background-size: 400% 400%;
+  animation: gradient 12s ease infinite;
+}
+
+/* Floating orbs */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  animation: float 8s ease-in-out infinite;
+}
+
+.orb-blue {
+  background: radial-gradient(circle, #3B82F6, transparent);
+}
+
+.orb-purple {
+  background: radial-gradient(circle, #8B5CF6, transparent);
+}
+
+.orb-cyan {
+  background: radial-gradient(circle, #22D3EE, transparent);
+}
+
+/* Form section labels */
+.form-section-label {
+  @apply text-xs font-semibold tracking-widest uppercase;
+  color: rgba(59, 130, 246, 0.8);
+  letter-spacing: 0.1em;
+}
+
+/* Toast notification */
+.toast {
+  @apply fixed top-5 right-5 z-50 px-5 py-4 rounded-xl font-medium text-sm;
+  background: rgba(15, 15, 20, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  min-width: 280px;
+}
+
+.toast-success {
+  border-left: 3px solid #22D3EE;
+}
+
+.toast-error {
+  border-left: 3px solid #F87171;
+}
+
+.toast-loading {
+  border-left: 3px solid #3B82F6;
+}
