@@ -8,7 +8,12 @@ def create_app():
     
     # Configuration
     basedir = os.path.abspath(os.path.dirname(__file__))
-    app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join(basedir, 'database', 'devsnap.db')}"
+    if os.environ.get('VERCEL'):
+        db_path = '/tmp/devsnap.db'
+    else:
+        db_path = os.path.join(basedir, 'database', 'devsnap.db')
+        
+    app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{db_path}"
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SECRET_KEY'] = 'devsnap-secret-key-2024'
     
@@ -26,6 +31,7 @@ def create_app():
     
     return app
 
+app = create_app()
+
 if __name__ == '__main__':
-    app = create_app()
     app.run(debug=True, host='0.0.0.0', port=5000)
